@@ -47,12 +47,12 @@ bot.on('message', function(event)
   
   console.log(respond);
 
-  if(respond){
-    respond = respond.apply(machine)
-  }
-  else{
-    respond = "Not Entering any State";
-  }
+  // if(respond){
+  //   respond = respond.apply(machine)
+  // }
+  // else{
+  //   respond = "Not Entering any State";
+  // }
 
   event.reply(respond).then(function()
   {

@@ -45,7 +45,7 @@ bot.on('message', function(event)
   
 });
 
-bot.listen(process.env.PORT || 3000, function(response)
+bot.listen("", process.env.PORT || 3000, function(response)
 {
   console.log("listening at 3000...");
 });

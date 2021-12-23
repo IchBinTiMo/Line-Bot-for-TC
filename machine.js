@@ -2,7 +2,6 @@ const machine = {
   current: "user",
   state: {
     user: {
-      current: "user",
       goto:{
         state1: function(){
           return this.goToState_1();
@@ -13,7 +12,6 @@ const machine = {
       }      
     },
     state1: {
-      current: "state_1",
       goto: {
         user: function() {
           return this.goToUser();
@@ -21,7 +19,6 @@ const machine = {
       },      
     },
     state2: {
-      current: "state_2",
       goto: {
         user: function() {
           return this.goToUser();

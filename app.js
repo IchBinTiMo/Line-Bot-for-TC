@@ -31,7 +31,7 @@ bot.on('message', function(event)
   else if(command == "goto"){
     input = req[1];
     respond = states[machine.current][command][input]
-    if(repond){
+    if(respond){
       respond = respond.apply(machine);
     }
     else{

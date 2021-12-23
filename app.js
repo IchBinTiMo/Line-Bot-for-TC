@@ -14,6 +14,7 @@ let bot = linebot(
 
 bot.on('message', function(event)
 {
+  console.log("got msg");
   let input;
   switch(event.message.text){
     case "go to state 1":

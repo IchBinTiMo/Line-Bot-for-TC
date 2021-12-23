@@ -28,6 +28,7 @@ bot.on('message', function(event)
       break;
   }
   let respond = machine["state"][machine.current]
+  console.log(respond);
 
   if(respond){
     respond = respond.apply(machine)

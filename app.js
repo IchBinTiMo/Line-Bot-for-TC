@@ -19,11 +19,13 @@ bot.on('message', function(event)
   let command;
   let respond = machine["state"][machine.current];
 
+  console.log(req);
+
   command = req.substring(1);
 
   console.log(command);
 
-  if(req.length == 1){
+  if(req.length == 2){
     input = req[1];
     respond = respond[command][input];
   }

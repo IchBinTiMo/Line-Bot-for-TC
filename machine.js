@@ -13,6 +13,11 @@ const machine = {
       user: function() {
         return this.goBack();
       }
+    },
+    state2: {
+      user: function() {
+        return this.goBack();
+      }
     }
   },
   goBack(){

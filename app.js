@@ -1,5 +1,5 @@
 require("dotenv").config();
-const {machine} = require("./machine");
+const {machine} = (require("./machine")).machine;
 const linebot = require("linebot");
 
 
@@ -17,7 +17,7 @@ bot.on('message', function(event)
   let req = event.message.text.split(" ");
   let input;
   let command;
-  let states = machine["state"];
+  let states = machine.state;
 
   console.log(req);
 

@@ -21,6 +21,8 @@ bot.on('message', function(event)
 
   command = req.substring(1);
 
+  console.log(command);
+
   if(req.length == 1){
     input = req[1];
     respond = respond[command][input];

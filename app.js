@@ -26,11 +26,11 @@ bot.on('message', function(event)
   console.log(command);
 
   if(command == "current"){
-    respond = machine.current;
+    respond = machine[command];
   }
   else if(command == "goto"){
     input = req[1];
-    respond = states[machine.current][input];
+    respond = states[machine.current][command][input];
   }
 
   // switch(event.message.text){

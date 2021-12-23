@@ -30,7 +30,8 @@ bot.on('message', function(event)
   }
   else if(command == "goto"){
     input = req[1];
-    respond = states[machine.current][command][input];
+    respond = states[machine.current][command][input]
+    respond.apply(machine);
   }
 
   // switch(event.message.text){

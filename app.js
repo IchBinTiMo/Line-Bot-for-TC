@@ -1,5 +1,5 @@
 require("dotenv").config();
-const {machine} = (require("./machine")).machine;
+const machine = (require("./machine")).machine;
 const linebot = require("linebot");
 
 

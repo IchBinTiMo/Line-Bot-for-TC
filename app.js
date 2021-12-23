@@ -14,20 +14,33 @@ let bot = linebot(
 
 bot.on('message', function(event)
 {
-  console.log("got msg");
+  let req = event.message.text.split(" ");
   let input;
-  switch(event.message.text){
-    case "go to state 1":
-      input = "state1";
-      break;
-    case "go to state 2":
-      input = "state2";
-      break
-    case "go back":
-      input = "user";
-      break;
+  let command;
+  let respond = machine["state"][machine.current];
+
+  command = req.substring(1);
+
+  if(req.length == 1){
+    input = req[1];
+    respond = respond[command][input];
   }
-  let respond = machine["state"][machine.current][input]
+  else{
+    respond = respond[command];    
+  }
+
+  // switch(event.message.text){
+  //   case "#goto state1":
+  //     input = "state1";
+  //     break;
+  //   case "#goto state2":
+  //     input = "state2";
+  //     break
+  //   case "#goto user":
+  //     input = "user";
+  //     break;
+  // }
+  
   console.log(respond);
 
   if(respond){

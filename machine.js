@@ -2,25 +2,34 @@ const machine = {
   current: "user",
   state: {
     user: {
-      state1: function(){
-        return this.goToState_1();
-      }, 
-      state2: function() {
-        return this.goToState_2();
-      }
+      current: "user",
+      goto:{
+        state1: function(){
+          return this.goToState_1();
+        }, 
+        state2: function() {
+          return this.goToState_2();
+        }
+      }      
     },
     state1: {
-      user: function() {
-        return this.goBack();
-      }
+      current: "state_1",
+      goto: {
+        user: function() {
+          return this.goToUser();
+        }
+      },      
     },
     state2: {
-      user: function() {
-        return this.goBack();
-      }
+      current: "state_2",
+      goto: {
+        user: function() {
+          return this.goToUser();
+        }
+      }      
     }
   },
-  goBack(){
+  goToUser(){
     let message = "Trigger user\nSelect state1 or state2";
     this.changeState("user");
     return message;

@@ -27,6 +27,8 @@
   "homepage": "https://github.com/IchBinTiMo/Line-Bot-for-TC#readme",
   "dependencies": {
     "dotenv": "^10.0.0",
+    "jointjs": "^3.4.4",
+    "jquery": "^3.6.0",
     "js-finite-state-machine": "^0.1.3",
     "linebot": "^1.6.1",
     "ngrok": "^4.2.2"

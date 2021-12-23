@@ -45,7 +45,7 @@ bot.on('message', function(event)
   //     break;
   // }
   
-  console.log(respond);
+  console.log(input, respond);
 
   // if(respond){
   //   respond = respond.apply(machine)

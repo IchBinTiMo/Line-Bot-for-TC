@@ -17,7 +17,7 @@ bot.on('message', function(event)
   let req = event.message.text.split(" ");
   let input;
   let command;
-  let respond = machine["state"][machine.current];
+  let states = machine["state"];
 
   console.log(req);
 
@@ -25,12 +25,12 @@ bot.on('message', function(event)
 
   console.log(command);
 
-  if(req.length == 2){
-    input = req[1];
-    respond = respond[command][input];
+  if(command == "current"){
+    respond = machine.current;
   }
-  else{
-    respond = respond[command];    
+  else if(command == "goto"){
+    input = req[1];
+    respond = states[machine.current][input];
   }
 
   // switch(event.message.text){

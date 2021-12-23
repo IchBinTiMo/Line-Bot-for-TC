@@ -17,7 +17,7 @@ const machine = {
   },
   goBack(){
     let message = "Trigger user\nSelect state1 or state2";
-    this.setState("user");
+    this.changeState("user");
     return message;
     
   },

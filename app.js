@@ -45,18 +45,7 @@ bot.on('message', function(event)
   
 });
 
-bot.listen("/linewebhook", 3000, function(response)
+bot.listen(process.env.PORT || 3000, function(response)
 {
-  console.log(response);
   console.log("listening at 3000...");
 });
-
-// console.log(machine.state.user.outFunction.state1);
-// let respond = machine["state"]["user"]["state2"];
-// if(respond){
-//   respond = respond.apply(machine);
-// }
-// else{
-//   console.log("Not Entering any State");
-// }
-// console.log(machine.current, respond);

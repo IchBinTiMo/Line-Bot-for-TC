@@ -27,7 +27,7 @@ bot.on('message', function(event)
       input = "user";
       break;
   }
-  let respond = machine["state"][machine.current]
+  let respond = machine["state"][machine.current][input]
   console.log(respond);
 
   if(respond){

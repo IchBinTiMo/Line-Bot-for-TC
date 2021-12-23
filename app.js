@@ -31,7 +31,12 @@ bot.on('message', function(event)
   else if(command == "goto"){
     input = req[1];
     respond = states[machine.current][command][input]
-    respond = respond.apply(machine);
+    if(repond){
+      respond = respond.apply(machine);
+    }
+    else{
+      respond = "Not Entering any State";
+    }
   }
 
   // switch(event.message.text){

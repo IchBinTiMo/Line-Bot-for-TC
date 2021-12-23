@@ -21,7 +21,7 @@ bot.on('message', function(event)
 
   console.log(req);
 
-  command = req.substring(1);
+  command = req[0].substring(1);
 
   console.log(command);
 

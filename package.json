@@ -1,0 +1,33 @@
+{
+  "name": "line-bot-for-tc",
+  "version": "1.0.0",
+  "description": "line bot for TC",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IchBinTiMo/Line-Bot-for-TC.git"
+  },
+  "keywords": [
+    "line",
+    "bot",
+    "FSM",
+    "theory",
+    "of",
+    "computation"
+  ],
+  "author": "Timo Lin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IchBinTiMo/Line-Bot-for-TC/issues"
+  },
+  "homepage": "https://github.com/IchBinTiMo/Line-Bot-for-TC#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "js-finite-state-machine": "^0.1.3",
+    "linebot": "^1.6.1",
+    "ngrok": "^4.2.2"
+  }
+}

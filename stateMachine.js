@@ -14,14 +14,14 @@ const machine = xstate.Machine(
           STATE1: 
           {
             target: "state1",
-            actions: ["entryState1"]
+            // actions: ["entryState1"]
           },
           STATE2: "state2"
         }
       },
       state1:
       {
-        entry: "entryState1",
+        entry: entryState1,
         on:
         {
           USER: "user"

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>
+    mermaid.initialize({ startOnLoad: true });
+  </script>
+
+  <div class="mermaid">
+    graph LR 
+    A[user] -->|STATE1| B[state 1]
+    A[user] -->|STATE2| C[state 2]
+    B[state 1] -->|USER| A[user]
+    C[state 2] -->|USER| A[user]
+  </div>
+</body>
+
+</html>

@@ -9,6 +9,7 @@ let states = Object.keys(machine.config.states);
 let current = machine.initialState;
 
 const ENTER_FAIL = "Not Entering Any State";
+const WRONG_CMD = "Wrong Command!";
 
 
 let bot = linebot(
@@ -22,28 +23,16 @@ let bot = linebot(
 bot.on('message', function(event)
 {
   let req = event.message.text.split(" ");
-  let tmp = machine;
 
-  // console.log(req);
   if(req[0][0] == '#'){
     action = req[0].substring(1);
     input = req[1];
 
-    // console.log(action);
-
-    // if(action == "current"){
-    //   respond = machine[action];
-    // }
-    // else if(action == "goto"){
-    // console.log("action = " + action);
     if(action == "current"){
       respond = current.value;
     }
     else if(action == "goto"){
-      // console.log("after: " + machine.transition(current, input.toUpperCase()).value)
       if(states.includes(input) && current.value != machine.transition(current, input.toUpperCase()).value){
-        // console.log("current = " + current.value + "tmp = " + machine.transition(current, input.toUpperCase()).value);
-        // console.log("input = " + input);
         current = machine.transition(current, input.toUpperCase());
         respond = "Trigger " + input;      
       }
@@ -52,7 +41,7 @@ bot.on('message', function(event)
       }
     }
     else{
-      respond = ENTER_FAIL;
+      respond = WRONG_CMD;
     }
   }
   else{

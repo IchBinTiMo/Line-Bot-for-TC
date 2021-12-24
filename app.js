@@ -24,6 +24,7 @@ bot.on('message', function(event)
   // console.log(req);
 
   action = req[0].substring(1);
+  input = req[1];
 
   // console.log(action);
 
@@ -37,7 +38,7 @@ bot.on('message', function(event)
   }
   else if(action == "goto"){
     if(states.includes(input)){
-      input = req[1].toUpperCase();
+      input = input.toUpperCase();
       console.log("input = " + input);
       current = machine.transition(current, input);
       respond = "Trigger " + input.toLowerCase();

@@ -39,9 +39,9 @@ bot.on('message', function(event)
     respond = current.value;
   }
   else if(action == "goto"){
+    input = input.toUpperCase();
     console.log("after: " + machine.transition(current, input).value)
     if(states.includes(input) && current.value != machine.transition(current, input).value){
-      input = input.toUpperCase();
       console.log("input = " + input);
       current = machine.transition(current, input);
       respond = "Trigger " + input.toLowerCase();      

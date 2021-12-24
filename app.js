@@ -25,32 +25,40 @@ bot.on('message', function(event)
   let tmp = machine;
 
   // console.log(req);
+  if(req[0][0] == '#'){
+    action = req[0].substring(1);
+    input = req[1];
 
-  action = req[0].substring(1);
-  input = req[1];
+    // console.log(action);
 
-  // console.log(action);
-
-  // if(action == "current"){
-  //   respond = machine[action];
-  // }
-  // else if(action == "goto"){
-  console.log("action = " + action);
-  if(action == "current"){
-    respond = current.value;
-  }
-  else if(action == "goto"){
-    console.log("after: " + machine.transition(current, input.toUpperCase()).value)
-    if(states.includes(input) && current.value != machine.transition(current, input.toUpperCase()).value){
-      console.log("current = " + current.value + "tmp = " + machine.transition(current, input.toUpperCase()).value);
-      console.log("input = " + input);
-      current = machine.transition(current, input.toUpperCase());
-      respond = "Trigger " + input;      
+    // if(action == "current"){
+    //   respond = machine[action];
+    // }
+    // else if(action == "goto"){
+    // console.log("action = " + action);
+    if(action == "current"){
+      respond = current.value;
+    }
+    else if(action == "goto"){
+      // console.log("after: " + machine.transition(current, input.toUpperCase()).value)
+      if(states.includes(input) && current.value != machine.transition(current, input.toUpperCase()).value){
+        // console.log("current = " + current.value + "tmp = " + machine.transition(current, input.toUpperCase()).value);
+        // console.log("input = " + input);
+        current = machine.transition(current, input.toUpperCase());
+        respond = "Trigger " + input;      
+      }
+      else{
+        respond = ENTER_FAIL;
+      }
     }
     else{
       respond = ENTER_FAIL;
     }
   }
+  else{
+    respond = "";
+  }
+  
   
   //   respond = states[machine.current][action][input]
   //   if(respond){

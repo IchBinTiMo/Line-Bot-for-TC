@@ -22,6 +22,7 @@ let bot = linebot(
 bot.on('message', function(event)
 {
   let req = event.message.text.split(" ");
+  let tmp = machine;
 
   // console.log(req);
 
@@ -40,8 +41,8 @@ bot.on('message', function(event)
   }
   else if(action == "goto"){
     input = input.toUpperCase();
-    console.log("after: " + machine.transition(current, input).value)
-    if(states.includes(input) && current.value != machine.transition(current, input).value){
+    console.log("after: " + tmp.transition(current, input).value)
+    if(states.includes(input) && current.value != tmp.value){
       console.log("input = " + input);
       current = machine.transition(current, input);
       respond = "Trigger " + input.toLowerCase();      

@@ -3,6 +3,10 @@ require("dotenv").config();
 const machine = require("./stateMachine").machine;
 const linebot = require("linebot");
 
+let input;
+let action;
+let states = Object.keys(machine.config.states);
+let current = machine.initialState;
 
 
 let bot = linebot(
@@ -16,10 +20,6 @@ let bot = linebot(
 bot.on('message', function(event)
 {
   let req = event.message.text.split(" ");
-  let input;
-  let action;
-  let states = Object.keys(machine.config.states);
-  let current = machine.initialState;
 
   // console.log(req);
 

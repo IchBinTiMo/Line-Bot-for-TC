@@ -31,13 +31,22 @@ bot.on('message', function(event)
   //   respond = machine[action];
   // }
   // else if(action == "goto"){
+  console.log(action);
+  if(action == "current"){
+    respond = current.value;
+  }
+  else if(action == "goto"){
+    console.log(input);
     if(states.includes(input)){
       input = req[1].toUpperCase();
       current = machine.transition(current, input);
+      respond = "Trigger " + input.toLowerCase();
     }
     else{
       respond = "Not Entering Any State";
     }
+  }
+  
   //   respond = states[machine.current][action][input]
   //   if(respond){
   //     respond = respond.apply(machine);

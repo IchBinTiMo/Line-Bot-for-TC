@@ -42,6 +42,7 @@ bot.on('message', function(event)
   else if(action == "goto"){
     console.log("after: " + tmp.transition(current, input.toUpperCase()).value)
     if(states.includes(input) && current.value != tmp.value){
+      console.log("current = " + current.value);
       console.log("input = " + input);
       current = machine.transition(current, input.toUpperCase());
       respond = "Trigger " + input;      

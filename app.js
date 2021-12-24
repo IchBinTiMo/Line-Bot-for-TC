@@ -44,7 +44,7 @@ bot.on('message', function(event)
     if(states.includes(input) && current.value != tmp.value){
       console.log("input = " + input);
       current = machine.transition(current, input);
-      respond = "Trigger " + input.toLowerCase();      
+     respond = "Trigger " + input.toLowerCase();      
     }
     else{
       respond = ENTER_FAIL;

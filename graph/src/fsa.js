@@ -1,7 +1,5 @@
-const machine = require('../machine');
-
-const states = Object.keys(machine.machine.state);
-
+// const bot = require('linebot');
+// const joint = require("jointjs");
 var graph = new joint.dia.Graph;
 
 var paper = new joint.dia.Paper({

@@ -1,5 +1,6 @@
 require("dotenv").config();
-const machine = (require("./machine")).machine;
+// const machine = (require("./machine")).machine;
+const machine = require("./stateMachine").machine;
 const linebot = require("linebot");
 
 
@@ -16,49 +17,56 @@ bot.on('message', function(event)
 {
   let req = event.message.text.split(" ");
   let input;
-  let command;
-  let states = machine.state;
+  let action;
+  let states = Object.keys(machine.config.states);
+  let current = machine.initialState;
 
-  console.log(req);
+  // console.log(req);
 
-  command = req[0].substring(1);
+  action = req[0].substring(1);
 
-  console.log(command);
+  // console.log(action);
 
-  if(command == "current"){
-    respond = machine[command];
-  }
-  else if(command == "goto"){
-    input = req[1];
-    respond = states[machine.current][command][input]
-    if(respond){
-      respond = respond.apply(machine);
+  // if(action == "current"){
+  //   respond = machine[action];
+  // }
+  // else if(action == "goto"){
+    if(states.includes(input)){
+      input = req[1].toUpperCase();
+      current = machine.transition(current, input);
     }
     else{
-      respond = "Not Entering any State";
+      respond = "Not Entering Any State";
     }
-  }
-
-  // switch(event.message.text){
-  //   case "#goto state1":
-  //     input = "state1";
-  //     break;
-  //   case "#goto state2":
-  //     input = "state2";
-  //     break
-  //   case "#goto user":
-  //     input = "user";
-  //     break;
+  //   respond = states[machine.current][action][input]
+  //   if(respond){
+  //     respond = respond.apply(machine);
+  //   }
+  //   else{
+  //     respond = "Not Entering any State";
+  //   }
   // }
+
+  // // switch(event.message.text){
+  // //   case "#goto state1":
+  // //     input = "state1";
+  // //     break;
+  // //   case "#goto state2":
+  // //     input = "state2";
+  // //     break
+  // //   case "#goto user":
+  // //     input = "user";
+  // //     break;
+  // // }
   
-  console.log(input, respond);
+  // console.log(input, respond);
 
-  // if(respond){
-  //   respond = respond.apply(machine)
-  // }
-  // else{
-  //   respond = "Not Entering any State";
-  // }
+  // // if(respond){
+  // //   respond = respond.apply(machine)
+  // // }
+  // // else{
+  // //   respond = "Not Entering any State";
+  // // }
 
   event.reply(respond).then(function()
   {

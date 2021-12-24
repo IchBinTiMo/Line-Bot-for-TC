@@ -40,9 +40,9 @@ bot.on('message', function(event)
     respond = current.value;
   }
   else if(action == "goto"){
-    console.log("after: " + tmp.transition(current, input.toUpperCase()).value)
-    if(states.includes(input) && current.value != tmp.value){
-      console.log("current = " + current.value + "tmp = " + tmp.value);
+    console.log("after: " + machine.transition(current, input.toUpperCase()).value)
+    if(states.includes(input) && current.value != machine.transition(current, input.toUpperCase()).value){
+      console.log("current = " + current.value + "tmp = " + machine.transition(current, input.toUpperCase()).value);
       console.log("input = " + input);
       current = machine.transition(current, input.toUpperCase());
       respond = "Trigger " + input;      

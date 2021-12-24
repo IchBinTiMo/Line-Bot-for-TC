@@ -8,6 +8,8 @@ let action;
 let states = Object.keys(machine.config.states);
 let current = machine.initialState;
 
+const ENTER_FAIL = "Not Entering Any State";
+
 
 let bot = linebot(
   {
@@ -37,14 +39,14 @@ bot.on('message', function(event)
     respond = current.value;
   }
   else if(action == "goto"){
-    if(states.includes(input)){
+    if(states.includes(input) && current.value == machine.transition(current, input).value){
       input = input.toUpperCase();
       console.log("input = " + input);
       current = machine.transition(current, input);
-      respond = "Trigger " + input.toLowerCase();
+      respond = "Trigger " + input.toLowerCase();      
     }
     else{
-      respond = "Not Entering Any State";
+      respond = ENTER_FAIL;
     }
   }
   

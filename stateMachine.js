@@ -21,7 +21,7 @@ const machine = xstate.Machine(
       },
       state1:
       {
-        entry: entryState1,
+        entry: "entryState1",
         on:
         {
           USER: "user"
@@ -40,7 +40,9 @@ const machine = xstate.Machine(
   {
     actions:
     {
-      entryState1: (context, event) => console.log("Trigger state 1")
+      entryState1: (context, event) => {
+        console.log("Trigger state 1")
+      }
       
     }
   });

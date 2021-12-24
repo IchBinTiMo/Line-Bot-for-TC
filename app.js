@@ -31,14 +31,14 @@ bot.on('message', function(event)
   //   respond = machine[action];
   // }
   // else if(action == "goto"){
-  console.log(action);
+  console.log("action = " + action);
   if(action == "current"){
     respond = current.value;
   }
   else if(action == "goto"){
-    console.log(input);
     if(states.includes(input)){
       input = req[1].toUpperCase();
+      console.log("input = " + input);
       current = machine.transition(current, input);
       respond = "Trigger " + input.toLowerCase();
     }

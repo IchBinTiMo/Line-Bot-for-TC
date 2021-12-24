@@ -43,8 +43,8 @@ bot.on('message', function(event)
     console.log("after: " + tmp.transition(current, input.toUpperCase()).value)
     if(states.includes(input) && current.value != tmp.value){
       console.log("input = " + input);
-      current = machine.transition(current, input);
-      respond = "Trigger " + input.toLowerCase();      
+      current = machine.transition(current, input.toUpperCase());
+      respond = "Trigger " + input;      
     }
     else{
       respond = ENTER_FAIL;

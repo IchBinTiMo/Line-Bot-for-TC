@@ -40,8 +40,7 @@ bot.on('message', function(event)
     respond = current.value;
   }
   else if(action == "goto"){
-    input = input.toUpperCase();
-    console.log("after: " + tmp.transition(current, input).value)
+    console.log("after: " + tmp.transition(current, input.toUpperCase()).value)
     if(states.includes(input) && current.value != tmp.value){
       console.log("input = " + input);
       current = machine.transition(current, input);

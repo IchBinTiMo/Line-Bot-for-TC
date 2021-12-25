@@ -5,7 +5,6 @@ const linebot = require("linebot");
 
 let input;
 let action;
-// let states = Object.keys(machine.config.states);
 let current = machine.initial;
 
 const ENTER_FAIL = "Not Entering Any State";
@@ -32,10 +31,6 @@ bot.on('message', function(event)
       respond = current;
     }
     else if(action == "goto"){
-      // if(states.includes(input) && current.value != machine.transition(current, input.toUpperCase()).value){
-      //   current = machine.transition(current, input.toUpperCase());
-      //   respond = "Trigger " + input;      
-      // }
       if(current != machine.transition(current, input)){
         current = machine.transition(current, input);
         respond = "Trigger " + input;

@@ -67,7 +67,7 @@ function eventHandler(event)
     else if(action == "help"){
       respond = {
         "type": "flex",
-        "altText": "",
+        "altText": "help flex",
         "content": help
 
       }

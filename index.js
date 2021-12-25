@@ -34,7 +34,7 @@ app.post("/callback", middleware(config), (req, res) =>
     });
 });
 
-function eventHandler()
+function eventHandler(event)
 {
   let req = event.message.text.split(" ");
 

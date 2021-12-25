@@ -1,4 +1,4 @@
-export const help = () => {
+exports.help = () => {
   return {
     "type": "bubble",
     "body": {

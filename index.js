@@ -68,7 +68,7 @@ function eventHandler(event)
       respond = {
         "type": "flex",
         "altText": "",
-        "contents": help
+        "content": help
 
       }
     }

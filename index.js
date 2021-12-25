@@ -12,6 +12,8 @@ const config = {
   channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN
 };
 
+const client = new line.Client(config);
+
 let input;
 let action;
 let current = machine.initial;
@@ -21,7 +23,7 @@ const WRONG_CMD = "Wrong Command!";
 
 app.post("/callback", middleware(config), (req, res) => 
 {
-  res.send("got request");
+  console.log(req, res)
 
   Promise
     .all(req.body.events.map(eventHandler))

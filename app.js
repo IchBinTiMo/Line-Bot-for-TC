@@ -2,6 +2,8 @@ require("dotenv").config();
 const machine = (require("./machine")).machine;
 // const machine = require("./stateMachine").machine;
 const linebot = require("linebot");
+const help = (require("./help")).help;
+let type;
 
 let input;
 let action;
@@ -29,18 +31,25 @@ bot.on('message', function(event)
 
     if(action == "current"){
       respond = current;
+      type = "text";
     }
     else if(action == "goto"){
       if(machine.transition(current, input) != null){
         current = machine.transition(current, input);
         respond = "Trigger " + input;
+        type = "text";
       }
       else{
         respond = ENTER_FAIL;
+        type = "text";
       }
+    }
+    else if(action == "help"){
+
     }
     else{
       respond = WRONG_CMD;
+      type = "text";
     }
   }
   else{
@@ -78,14 +87,20 @@ bot.on('message', function(event)
   // //   respond = "Not Entering any State";
   // // }
 
-  console.log(respond.type);
-  event.reply(respond).then(function()
-  {
-    console.log("Respond Successfully!");
-  }).catch(function()
-  {
-    console.log("Respond Failed!");
-  });
+  console.log(respond);
+  if(type === "text"){
+    event.reply({type: type, text: respond}).then(function()
+    {
+      console.log("Respond Successfully!");
+    }).catch(function()
+    {
+      console.log("Respond Failed!");
+    });
+  }
+  else if(type === "flex"){
+
+  }
+  
   
 });
 

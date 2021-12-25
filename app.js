@@ -31,7 +31,7 @@ bot.on('message', function(event)
       respond = current;
     }
     else if(action == "goto"){
-      if(current != machine.transition(current, input)){
+      if(machine.transition(current, input) != null){
         current = machine.transition(current, input);
         respond = "Trigger " + input;
       }
@@ -78,6 +78,7 @@ bot.on('message', function(event)
   // //   respond = "Not Entering any State";
   // // }
 
+  console.log(respond.type);
   event.reply(respond).then(function()
   {
     console.log("Respond Successfully!");

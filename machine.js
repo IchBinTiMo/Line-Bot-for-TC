@@ -59,7 +59,7 @@ const machine = {
         }
       }
       else{
-        machine.current = cur;
+        machine.current = null;
       }
       return machine.current;
     }

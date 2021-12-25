@@ -35,34 +35,34 @@ const machine = {
     },
     actions:
     {
-      transtion: (cur, nxt) => {
-        let current = machine.states[cur];
-        let currentNode = Object.keys(current);
-        let states = Object.keys(current.on);
-          
-        if(states.includes(nxt.toUpperCase())){
-          if(currentNode.includes("exit")){
-            current.exit();
-          }
-          if(Object.keys(current.on[nxt.toUpperCase()]).includes("actions")){
-            current.on[nxt.toUpperCase()].actions();
-          }
-          machine.current = nxt;
-          let next = machine.states[nxt];
-          let nextNode = Object.keys(next);
-          if(nextNode.includes("entry")){
-            next.entry();
-          }
-        }
-        else{
-          machine.current = cur;
-        }
-        return machine.current;
-      },
       entryState1: () => {
         console.log("Trigger state 1");
       }
-    }    
+    },
+    transition: (cur, nxt) => {
+      let current = machine.states[cur];
+      let currentNode = Object.keys(current);
+      let states = Object.keys(current.on);
+        
+      if(states.includes(nxt.toUpperCase())){
+        if(currentNode.includes("exit")){
+          current.exit();
+        }
+        if(Object.keys(current.on[nxt.toUpperCase()]).includes("actions")){
+          current.on[nxt.toUpperCase()].actions();
+        }
+        machine.current = nxt;
+        let next = machine.states[nxt];
+        let nextNode = Object.keys(next);
+        if(nextNode.includes("entry")){
+          next.entry();
+        }
+      }
+      else{
+        machine.current = cur;
+      }
+      return machine.current;
+    }
   }
 
 

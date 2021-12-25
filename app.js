@@ -45,7 +45,8 @@ bot.on('message', function(event)
       }
     }
     else if(action == "help"){
-
+      respond = help;
+      type = "flex"
     }
     else{
       respond = WRONG_CMD;
@@ -98,7 +99,13 @@ bot.on('message', function(event)
     });
   }
   else if(type === "flex"){
-
+    event.reply({type: type, template: respond}).then(function()
+    {
+      console.log("Respond Successfully!");
+    }).catch(function()
+    {
+      console.log("Respond Failed!");
+    });
   }
   
   

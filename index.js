@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require('express');
-const middleware = require("@line/bot-sdk").middleware;
+const line = require("@line/bot-sdk");
+const middleware = line.middleware;
 
 const machine = (require("./machine")).machine;
 const help = (require("./help")).help;

@@ -24,7 +24,7 @@ const WRONG_CMD = "Wrong Command!";
 
 app.post("/callback", middleware(config), (req, res) => 
 {
-  console.log(req, res)
+  // console.log(req, res)
 
   Promise
     .all(req.body.events.map(eventHandler))
@@ -68,7 +68,24 @@ function eventHandler(event)
       respond = {
         type: "flex",
         altText: "",
-        contents: help
+        contents: {
+          "type": "bubble",
+          "body": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "button",
+                "action": {
+                  "type": "message",
+                  "label": "action",
+                  "text": "hello"
+                }
+              }
+            ]
+          }
+        }
+
       }
     }
     else{

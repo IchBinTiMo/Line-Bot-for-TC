@@ -36,8 +36,8 @@ bot.on('message', function(event)
       //   current = machine.transition(current, input.toUpperCase());
       //   respond = "Trigger " + input;      
       // }
-      if(current != machine.actions.transition(current, input)){
-        current = machine.actions.transition(current, input);
+      if(current != machine.transition(current, input)){
+        current = machine.transition(current, input);
         respond = "Trigger " + input;
       }
       else{

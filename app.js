@@ -1,12 +1,12 @@
 require("dotenv").config();
-// const machine = (require("./machine")).machine;
-const machine = require("./stateMachine").machine;
+const machine = (require("./machine")).machine;
+// const machine = require("./stateMachine").machine;
 const linebot = require("linebot");
 
 let input;
 let action;
 let states = Object.keys(machine.config.states);
-let current = machine.initialState;
+let current = machine.initial;
 
 const ENTER_FAIL = "Not Entering Any State";
 const WRONG_CMD = "Wrong Command!";
@@ -29,12 +29,16 @@ bot.on('message', function(event)
     input = req[1];
 
     if(action == "current"){
-      respond = current.value;
+      respond = current;
     }
     else if(action == "goto"){
-      if(states.includes(input) && current.value != machine.transition(current, input.toUpperCase()).value){
-        current = machine.transition(current, input.toUpperCase());
-        respond = "Trigger " + input;      
+      // if(states.includes(input) && current.value != machine.transition(current, input.toUpperCase()).value){
+      //   current = machine.transition(current, input.toUpperCase());
+      //   respond = "Trigger " + input;      
+      // }
+      if(current != machine.transition(current, input)){
+        current = machine.transition(current, input);
+        respond = "Trigger " + input;
       }
       else{
         respond = ENTER_FAIL;

@@ -4,7 +4,7 @@ const line = require("@line/bot-sdk");
 const middleware = line.middleware;
 
 const machine = (require("./machine")).machine;
-const help = (require("./help")).help;
+const help = (require("./help"));
 
 const app = express();
 
@@ -68,7 +68,7 @@ function eventHandler(event)
       respond = {
         "type": "flex",
         "altText": "help flex",
-        "content": help
+        "contents": help.help()
 
       }
     }

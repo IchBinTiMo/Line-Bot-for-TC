@@ -99,7 +99,7 @@ bot.on('message', function(event)
     });
   }
   else if(type === "flex"){
-    event.reply({type: type, template: respond}).then(function()
+    event.reply({type: "template", template: respond}).then(function()
     {
       console.log("Respond Successfully!");
     }).catch(function()

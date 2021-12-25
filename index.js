@@ -45,60 +45,44 @@ function eventHandler(event)
 
     if(action == "current"){
       respond = {
-      type: "text",
-      text: current
+      "type": "text",
+      "text": current
     };
     }
     else if(action == "goto"){
       if(machine.transition(current, input) != null){
         current = machine.transition(current, input);
         respond = {
-          type: "text",
-          text: "Trigger" + input
+          "type": "text",
+          "text": "Trigger" + input
         };
       }
       else{
         respond = {
-        type: "text",
-        text: ENTER_FAIL
+        "type": "text",
+        "text": ENTER_FAIL
       }
       }
     }
     else if(action == "help"){
       respond = {
-        type: "flex",
-        altText: "",
-        contents: {
-          "type": "bubble",
-          "body": {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "button",
-                "action": {
-                  "type": "message",
-                  "label": "action",
-                  "text": "hello"
-                }
-              }
-            ]
-          }
-        }
+        "type": "flex",
+        "altText": "",
+        "contents": help
 
       }
     }
     else{
       respond = {
-        type: "text",
-        text: WRONG_CMD
+        "type": "text",
+        "text": WRONG_CMD
       }
     }
   }
   else{
     respond = {
-      type: "text",
-      text: ""
+      "type": "text",
+      "text": ""
     };
   }
   // use reply API

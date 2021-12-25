@@ -5,7 +5,7 @@ const linebot = require("linebot");
 
 let input;
 let action;
-let states = Object.keys(machine.config.states);
+// let states = Object.keys(machine.config.states);
 let current = machine.initial;
 
 const ENTER_FAIL = "Not Entering Any State";

@@ -20,7 +20,7 @@ let action;
 let current = machine.initial;
 
 const ENTER_FAIL = "Not Entering Any State";
-const WRONG_CMD = "Wrong Command!";
+const WRONG_CMD = "Wrong Command!\nType #help to show all command";
 
 app.post("/callback", middleware(config), (req, res) => 
 {
@@ -59,9 +59,9 @@ function eventHandler(event)
       }
       else{
         respond = {
-        "type": "text",
-        "text": ENTER_FAIL
-      }
+          "type": "text",
+          "text": ENTER_FAIL
+        }
       }
     }
     else if(action == "help"){
@@ -72,6 +72,7 @@ function eventHandler(event)
 
       }
     }
+    
     else{
       respond = {
         "type": "text",

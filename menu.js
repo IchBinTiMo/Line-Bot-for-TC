@@ -67,7 +67,7 @@ function help()
               "action": {
                 "type": "message",
                 "label": "Game",
-                "text": "#game"
+                "text": "#goto game"
               },
               "style": "primary",
               "color": "#8a4500",

@@ -53,7 +53,7 @@ function help()
               "contents": [
                 {
                   "type": "span",
-                  "text": "#Game",
+                  "text": "#goto game",
                   "weight": "bold"
                 },
                 {

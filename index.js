@@ -4,7 +4,7 @@ const line = require("@line/bot-sdk");
 const middleware = line.middleware;
 
 const machine = (require("./machine")).machine;
-const help = (require("./help"));
+const menu = (require("./menu"));
 
 const app = express();
 
@@ -54,7 +54,7 @@ function eventHandler(event)
         current = machine.transition(current, input);
         respond = {
           "type": "text",
-          "text": "Trigger" + input
+          "text": "Trigger " + input
         };
       }
       else{
@@ -68,7 +68,7 @@ function eventHandler(event)
       respond = {
         "type": "flex",
         "altText": "help flex",
-        "contents": help.help()
+        "contents": menu.help()
 
       }
     }

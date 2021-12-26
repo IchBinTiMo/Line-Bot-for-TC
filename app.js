@@ -2,7 +2,7 @@ require("dotenv").config();
 const machine = (require("./machine")).machine;
 // const machine = require("./stateMachine").machine;
 const linebot = require("linebot");
-const help = (require("./help")).help;
+const help = (require("./menu")).help();
 let type;
 
 let input;

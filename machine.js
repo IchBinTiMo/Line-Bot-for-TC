@@ -1,17 +1,17 @@
 const machine = {
-    initial: "user",
-    current: "user",
+    initial: "home",
+    current: "home",
     states:
     {
-      user:
+      home:
       {
-        exit: () => {console.log("exit user")},
+        exit: () => {console.log("exit home")},
         on:
         {
-          STATE1: 
+          GAME: 
           {
-            target: "state1",
-            actions: () => {console.log("actions from user to state1");}
+            target: "game",
+            actions: () => {console.log("actions from home to state1");}
           },
           STATE2: "state2"
         }
@@ -21,14 +21,22 @@ const machine = {
         entry: () => {machine.actions.entryState1()},
         on:
         {
-          USER: "user"
+          HOME: "home"
         }
       },
       state2:
       {
         on:
         {
-          USER: "user"
+          HOME: "home"
+        }
+      },
+      game:
+      {
+        on:
+        {
+          HOME: "home",
+
         }
       }
 
@@ -67,9 +75,9 @@ const machine = {
 
 
 // const machine = {
-//   current: "user",
+//   current: "home",
 //   state: {
-//     user: {
+//     home: {
 //       goto:{
 //         state1: function(){
 //           return this.goToState_1();
@@ -81,22 +89,22 @@ const machine = {
 //     },
 //     state1: {
 //       goto: {
-//         user: function() {
+//         home: function() {
 //           return this.goToUser();
 //         }
 //       },      
 //     },
 //     state2: {
 //       goto: {
-//         user: function() {
+//         home: function() {
 //           return this.goToUser();
 //         }
 //       }      
 //     }
 //   },
 //   goToUser(){
-//     let message = "Trigger user\nSelect state1 or state2";
-//     this.changeState("user");
+//     let message = "Trigger home\nSelect state1 or state2";
+//     this.changeState("home");
 //     return message;
     
 //   },

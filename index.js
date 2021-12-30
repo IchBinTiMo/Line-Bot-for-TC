@@ -141,8 +141,9 @@ function gameEventHandler(action, input)
   else if(action == "gameAction"){
     respond = {
       "type": "flex",
-      "altText": "game action",
-      "content": menu.game()
+      "altText": "help flex",
+      "contents": menu.game()
+
     }
   }
   else{

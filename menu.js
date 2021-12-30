@@ -1,4 +1,4 @@
-const machine = (require('./index').machine);
+const machine = (require('./machine').machine);
 
 function help()
 {

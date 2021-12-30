@@ -43,7 +43,7 @@ function eventHandler(event)
     action = req[0].substring(1);
     input = req[1];
 
-    if(action == "current"){
+    if(action == "location"){
       respond = {
       "type": "text",
       "text": current

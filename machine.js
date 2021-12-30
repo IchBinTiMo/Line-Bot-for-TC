@@ -11,17 +11,9 @@ const machine = {
           DUNGEON: 
           {
             target: "dungeon",
-            actions: () => {console.log("actions from home to state1");}
+            actions: () => {console.log("trigger dungeon");}
           },
           SHOP: "shop"
-        }
-      },
-      state1:
-      {
-        entry: () => {machine.actions.entryState1()},
-        on:
-        {
-          HOME: "home"
         }
       },
       shop:

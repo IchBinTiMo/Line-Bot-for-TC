@@ -119,7 +119,7 @@ function homeEventHandler(action, input)
 function gameEventHandler(action, input)
 {
   if(action == "forward"){
-    let dungeonMsg = dungeon.nextStage();
+    let dungeonMsg = dungeon.foward();
     if(dungeonMsg.type == "enemy"){
       dungeon.fighting = 1;
     }

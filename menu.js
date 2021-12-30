@@ -191,7 +191,225 @@ function help()
 function game()
 {
   return {
-
+    "type": "bubble",
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "#help to show all command",
+              "align": "center",
+              "contents": [
+                {
+                  "type": "span",
+                  "text": "#gameAction",
+                  "weight": "bold"
+                }
+              ],
+              "color": "#FFFFFF"
+            },
+            {
+              "type": "text",
+              "text": " to show all you can do in dungeon",
+              "color": "#FFFFFF",
+              "align": "center"
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "Action",
+                "text": "#gameAction"
+              },
+              "height": "sm",
+              "color": "#8a4500",
+              "style": "primary"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "hello, world",
+              "color": "#FFFFFF",
+              "position": "relative",
+              "align": "center",
+              "contents": [
+                {
+                  "type": "span",
+                  "text": "#forward",
+                  "weight": "bold"
+                },
+                {
+                  "type": "span",
+                  "text": " to go forward"
+                }
+              ]
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "Forward",
+                "text": "#forward"
+              },
+              "style": "primary",
+              "color": "#8a4500",
+              "height": "sm"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "hello, world",
+              "color": "#FFFFFF",
+              "position": "relative",
+              "align": "center",
+              "contents": [
+                {
+                  "type": "span",
+                  "text": "#heal",
+                  "weight": "bold"
+                },
+                {
+                  "type": "span",
+                  "text": " to heal up if you have potion"
+                }
+              ]
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "Heal",
+                "text": "#heal"
+              },
+              "style": "primary",
+              "color": "#8a4500",
+              "height": "sm"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "hello, world",
+              "color": "#FFFFFF",
+              "position": "relative",
+              "align": "center",
+              "contents": [
+                {
+                  "type": "span",
+                  "text": "#goto home",
+                  "weight": "bold"
+                },
+                {
+                  "type": "span",
+                  "text": " to go to shop"
+                }
+              ]
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "Home",
+                "text": "#goto home"
+              },
+              "style": "primary",
+              "color": "#8a4500",
+              "height": "sm"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "hello, world",
+              "color": "#FFFFFF",
+              "position": "relative",
+              "align": "center",
+              "contents": [
+                {
+                  "type": "span",
+                  "text": "#status",
+                  "weight": "bold"
+                },
+                {
+                  "type": "span",
+                  "text": " to show current status"
+                }
+              ]
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "Status",
+                "text": "#status"
+              },
+              "style": "primary",
+              "color": "#8a4500",
+              "height": "sm"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "hello, world",
+              "color": "#FFFFFF",
+              "position": "relative",
+              "align": "center",
+              "contents": [
+                {
+                  "type": "span",
+                  "text": "#location",
+                  "weight": "bold"
+                },
+                {
+                  "type": "span",
+                  "text": " to show where you are"
+                }
+              ]
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "Location",
+                "text": "#location"
+              },
+              "style": "primary",
+              "color": "#8a4500",
+              "height": "sm"
+            }
+          ]
+        }
+      ],
+      "backgroundColor": "#331A00"
+    }
   }
 }
 

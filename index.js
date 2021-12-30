@@ -72,6 +72,13 @@ function eventHandler(event)
 
       }
     }
+    else if(action == "status"){
+      respond = {
+        "type": "flex",
+        "altText": "status flex",
+        "contents": menu.status()
+      }
+    }
     
     else{
       respond = {

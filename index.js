@@ -138,10 +138,10 @@ function gameEventHandler(action, input)
       "text": machine.states[input].entry()
     };
   }
-  else if(action == "gameAction"){
+  else if(action == "help"){
     respond = {
       "type": "flex",
-      "altText": "help flex",
+      "altText": "game action flex",
       "contents": menu.game()
 
     }

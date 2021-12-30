@@ -28,7 +28,7 @@ bot.on('message', function(event)
   if(req[0][0] == '#'){
     action = req[0].substring(1);
     input = req[1];
-    console.log(action)
+    console.log(action);
 
     if(action == "location"){
       respond = current;

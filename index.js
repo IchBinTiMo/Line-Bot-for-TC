@@ -45,7 +45,7 @@ function eventHandler(event)
 
 
     if(current == "dungeon"){
-      
+      respond = gameEventHandler(action, input);
     }
     else if(current == "home"){
       respond = homeEventHandler(action, input);

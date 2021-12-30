@@ -25,6 +25,7 @@ const machine = {
       },
       dungeon:
       {
+        entry: () => {machine.actions.entryDungeon()},
         on:
         {
           HOME: "home",
@@ -35,8 +36,9 @@ const machine = {
     },
     actions:
     {
-      entryState1: () => {
-        console.log("Trigger state 1");
+      entryDungeon: () => {
+        msg = "Welcome to Dungeon!";
+        return msg;
       }
     },
     transition: (cur, nxt) => {

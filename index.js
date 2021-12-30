@@ -50,6 +50,19 @@ function eventHandler(event)
     else if(current == "home"){
       respond = homeEventHandler(action, input);
     }
+    if(action == "location"){
+      respond = {
+        "type": "text",
+        "text": current
+      };
+    }
+    else if(action == "status"){
+      respond = {
+        "type": "flex",
+        "altText": "status flex",
+        "contents": menu.status()
+      }
+    }
     
   }
   else{
@@ -64,13 +77,8 @@ function eventHandler(event)
 
 function homeEventHandler(action, input)
 {
-  if(action == "location"){
-    respond = {
-    "type": "text",
-    "text": current
-  };
-  }
-  else if(action == "goto"){
+  
+  if(action == "goto"){
     if(machine.transition(current, input) != null){
       current = machine.transition(current, input);
       respond = {
@@ -91,13 +99,6 @@ function homeEventHandler(action, input)
       "altText": "help flex",
       "contents": menu.help()
 
-    }
-  }
-  else if(action == "status"){
-    respond = {
-      "type": "flex",
-      "altText": "status flex",
-      "contents": menu.status()
     }
   }
   else{
@@ -136,6 +137,13 @@ function gameEventHandler(action, input)
       "type": "text",
       "text": machine.states[input].entry()
     };
+  }
+  else if(action == "gameAction"){
+    respond = {
+      "type": "flex",
+      "altText": "game action",
+      "content": menu.game()
+    }
   }
   else{
     respond = {

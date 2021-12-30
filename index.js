@@ -120,6 +120,7 @@ function gameEventHandler(action, input)
     }
   }
   else if(action == "heal"){
+    machine.currentHp += 10;
     respond = {
       "type": "text",
       "text": "heal up"
@@ -160,3 +161,4 @@ app.listen(process.env.PORT || 3000, () =>
   console.log(`Listening on ${process.env.PORT}...`);
 });
 
+module.exports = {machine};

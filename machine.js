@@ -25,7 +25,7 @@ const machine = {
       },
       dungeon:
       {
-        entry: () => {machine.actions.entryDungeon()},
+        entry: () => {return machine.actions.entryDungeon()},
         on:
         {
           HOME: "home",

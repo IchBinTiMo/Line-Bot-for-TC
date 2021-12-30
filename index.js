@@ -5,6 +5,7 @@ const middleware = line.middleware;
 
 const machine = (require("./machine")).machine;
 const menu = (require("./menu"));
+const Dungeon = require("./dungeon");
 
 const app = express();
 
@@ -21,6 +22,10 @@ let current = machine.initial;
 
 const ENTER_FAIL = "Not Entering Any State";
 const WRONG_CMD = "Wrong Command!\nType #help to show all command";
+
+
+let dungeon = new Dungeon();
+let fighting = 0;
 
 app.post("/callback", middleware(config), (req, res) => 
 {
@@ -114,9 +119,13 @@ function homeEventHandler(action, input)
 function gameEventHandler(action, input)
 {
   if(action == "forward"){
+    let dungeonMsg = dungeon.nextStage();
+    if(dungeonMsg.type == "enemy"){
+      dungeon.fighting = 1;
+    }
     respond = {
       "type": "text",
-      "text": "gogo"
+      "text": dungeonMsg.msg
     }
   }
   else if(action == "heal"){

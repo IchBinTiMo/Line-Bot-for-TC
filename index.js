@@ -43,49 +43,14 @@ function eventHandler(event)
     action = req[0].substring(1);
     input = req[1];
 
-    if(action == "location"){
-      respond = {
-      "type": "text",
-      "text": current
-    };
-    }
-    else if(action == "goto"){
-      if(machine.transition(current, input) != null){
-        current = machine.transition(current, input);
-        respond = {
-          "type": "text",
-          "text": machine.states[input].entry()
-        };
-      }
-      else{
-        respond = {
-          "type": "text",
-          "text": ENTER_FAIL
-        }
-      }
-    }
-    else if(action == "help"){
-      respond = {
-        "type": "flex",
-        "altText": "help flex",
-        "contents": menu.help()
 
-      }
+    if(current == "dungeon"){
+      
     }
-    else if(action == "status"){
-      respond = {
-        "type": "flex",
-        "altText": "status flex",
-        "contents": menu.status()
-      }
+    else if(current == "home"){
+      respond = homeEventHandler(action, input);
     }
     
-    else{
-      respond = {
-        "type": "text",
-        "text": WRONG_CMD
-      }
-    }
   }
   else{
     respond = {
@@ -95,6 +60,90 @@ function eventHandler(event)
   }
   // use reply API
   return client.replyMessage(event.replyToken, respond);
+}
+
+function homeEventHandler(action, input)
+{
+  if(action == "location"){
+    respond = {
+    "type": "text",
+    "text": current
+  };
+  }
+  else if(action == "goto"){
+    if(machine.transition(current, input) != null){
+      current = machine.transition(current, input);
+      respond = {
+        "type": "text",
+        "text": machine.states[input].entry()
+      };
+    }
+    else{
+      respond = {
+        "type": "text",
+        "text": ENTER_FAIL
+      }
+    }
+  }
+  else if(action == "help"){
+    respond = {
+      "type": "flex",
+      "altText": "help flex",
+      "contents": menu.help()
+
+    }
+  }
+  else if(action == "status"){
+    respond = {
+      "type": "flex",
+      "altText": "status flex",
+      "contents": menu.status()
+    }
+  }
+  else{
+    respond = {
+      "type": "text",
+      "text": WRONG_CMD
+    }
+  }
+
+  return respond;
+}
+
+function gameEventHandler(action, input)
+{
+  if(action == "forward"){
+    respond = {
+      "type": "text",
+      "text": "gogo"
+    }
+  }
+  else if(action == "heal"){
+    respond = {
+      "type": "text",
+      "text": "heal up"
+    }
+  }
+  else if(action == "attack"){
+    respond = {
+      "type": "text",
+      "text": "attack!"
+    }
+  }
+  else if(action == "goto" && input == "home"){
+    current = machine.transition(current, input);
+    respond = {
+      "type": "text",
+      "text": machine.states[input].entry()
+    };
+  }
+  else{
+    respond = {
+      "type": "text",
+      "text": WRONG_CMD
+    }
+  }
+  return respond;
 }
 
 app.listen(process.env.PORT || 3000, () => 

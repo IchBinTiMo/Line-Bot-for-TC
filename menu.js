@@ -193,4 +193,90 @@ function game()
   }
 }
 
-module.exports = {help, game};
+function status()
+{
+  return {
+    "type": "bubble",
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "align": "start",
+              "contents": [
+                {
+                  "type": "span",
+                  "text": "HP: ",
+                  "weight": "bold",
+                  "size": "20px"
+                }
+              ],
+              "color": "#FFFFFF"
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [],
+              "backgroundColor": "#00BC00",
+              "width": "260px",
+              "height": "20px"
+            },
+            {
+              "type": "text",
+              "text": "100/100",
+              "position": "relative",
+              "color": "#FFFFFF",
+              "offsetBottom": "20px",
+              "align": "center"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "align": "start",
+              "contents": [
+                {
+                  "type": "span",
+                  "text": "ATK: ",
+                  "weight": "bold",
+                  "size": "20px"
+                }
+              ],
+              "color": "#FFFFFF"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "contents": [
+                {
+                  "type": "span",
+                  "color": "#FFFFFF",
+                  "text": "DEF: ",
+                  "size": "20px",
+                  "weight": "bold"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "backgroundColor": "#331A00"
+    }
+  }
+}
+
+module.exports = {help, game, status};

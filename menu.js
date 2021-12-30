@@ -236,7 +236,8 @@ function status()
               "offsetBottom": "20px",
               "align": "center"
             }
-          ]
+          ], 
+          "height": "50px"
         },
         {
           "type": "box",

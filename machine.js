@@ -8,12 +8,12 @@ const machine = {
         exit: () => {console.log("exit home")},
         on:
         {
-          GAME: 
+          DUNGEON: 
           {
-            target: "game",
+            target: "dungeon",
             actions: () => {console.log("actions from home to state1");}
           },
-          STATE2: "state2"
+          SHOP: "shop"
         }
       },
       state1:
@@ -24,14 +24,14 @@ const machine = {
           HOME: "home"
         }
       },
-      state2:
+      shop:
       {
         on:
         {
           HOME: "home"
         }
       },
-      game:
+      dungeon:
       {
         on:
         {
@@ -82,7 +82,7 @@ const machine = {
 //         state1: function(){
 //           return this.goToState_1();
 //         }, 
-//         state2: function() {
+//         shop: function() {
 //           return this.goToState_2();
 //         }
 //       }      
@@ -94,7 +94,7 @@ const machine = {
 //         }
 //       },      
 //     },
-//     state2: {
+//     shop: {
 //       goto: {
 //         home: function() {
 //           return this.goToUser();
@@ -103,7 +103,7 @@ const machine = {
 //     }
 //   },
 //   goToUser(){
-//     let message = "Trigger home\nSelect state1 or state2";
+//     let message = "Trigger home\nSelect state1 or shop";
 //     this.changeState("home");
 //     return message;
     
@@ -115,8 +115,8 @@ const machine = {
 //   },
 
 //   goToState_2(){
-//     let message = "Trigger state2";
-//     this.changeState("state2");
+//     let message = "Trigger shop";
+//     this.changeState("shop");
 //     return message;
 //   },
 

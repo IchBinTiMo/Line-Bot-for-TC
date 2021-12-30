@@ -2,7 +2,7 @@ require("dotenv").config();
 const machine = (require("./machine")).machine;
 // const machine = require("./stateMachine").machine;
 const linebot = require("linebot");
-const help = (require("./menu")).help();
+const menu = require("./menu");
 let type;
 
 let input;
@@ -29,7 +29,7 @@ bot.on('message', function(event)
     action = req[0].substring(1);
     input = req[1];
 
-    if(action == "current"){
+    if(action == "location"){
       respond = current;
       type = "text";
     }
@@ -45,8 +45,11 @@ bot.on('message', function(event)
       }
     }
     else if(action == "help"){
-      respond = help;
+      respond = menu.help();
       type = "flex"
+    }
+    else if(action == "status"){
+
     }
     else{
       respond = WRONG_CMD;

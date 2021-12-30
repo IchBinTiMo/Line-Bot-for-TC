@@ -53,12 +53,12 @@ function help()
               "contents": [
                 {
                   "type": "span",
-                  "text": "#goto game",
+                  "text": "#goto dungeon",
                   "weight": "bold"
                 },
                 {
                   "type": "span",
-                  "text": " to show game menu"
+                  "text": " to go to dungeon"
                 }
               ]
             },
@@ -66,8 +66,113 @@ function help()
               "type": "button",
               "action": {
                 "type": "message",
-                "label": "Game",
-                "text": "#goto game"
+                "label": "Dungeon",
+                "text": "#goto dungeon"
+              },
+              "style": "primary",
+              "color": "#8a4500",
+              "height": "sm"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "hello, world",
+              "color": "#FFFFFF",
+              "position": "relative",
+              "align": "center",
+              "contents": [
+                {
+                  "type": "span",
+                  "text": "#goto shop",
+                  "weight": "bold"
+                },
+                {
+                  "type": "span",
+                  "text": " to go to shop"
+                }
+              ]
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "Shop",
+                "text": "#goto shop"
+              },
+              "style": "primary",
+              "color": "#8a4500",
+              "height": "sm"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "hello, world",
+              "color": "#FFFFFF",
+              "position": "relative",
+              "align": "center",
+              "contents": [
+                {
+                  "type": "span",
+                  "text": "#status",
+                  "weight": "bold"
+                },
+                {
+                  "type": "span",
+                  "text": " to show current status"
+                }
+              ]
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "Status",
+                "text": "#status"
+              },
+              "style": "primary",
+              "color": "#8a4500",
+              "height": "sm"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "hello, world",
+              "color": "#FFFFFF",
+              "position": "relative",
+              "align": "center",
+              "contents": [
+                {
+                  "type": "span",
+                  "text": "#location",
+                  "weight": "bold"
+                },
+                {
+                  "type": "span",
+                  "text": " to show where you are"
+                }
+              ]
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "Location",
+                "text": "#location"
               },
               "style": "primary",
               "color": "#8a4500",

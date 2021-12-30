@@ -443,7 +443,7 @@ function status()
               "layout": "vertical",
               "contents": [],
               "backgroundColor": "#00BC00",
-              "width": "260px",
+              "width": 260 * machine.currentHp / machine.maxHp + "px",
               "height": "20px"
             },
             {

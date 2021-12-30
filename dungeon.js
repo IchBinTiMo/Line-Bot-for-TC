@@ -9,8 +9,8 @@ class dungeon
   }
   foward(){
     let t = Math.random(this.event.length);
-    newStage(this.event[t]);
     console.log(t);
+    return newStage(this.event[t]);
   }
   nextStage(type){
     if(type == "nothing"){
@@ -33,6 +33,7 @@ class dungeon
         msg: "You see something..."
       }
     }
+   
   }
 }
 

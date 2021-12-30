@@ -119,14 +119,23 @@ function homeEventHandler(action, input)
 function gameEventHandler(action, input)
 {
   if(action == "forward"){
-    let dungeonMsg = dungeon.foward();
-    if(dungeonMsg.type == "enemy"){
-      dungeon.fighting = 1;
+    if(dungeon.fighting == 1){
+      respond = {
+        "type": "text",
+        "text": "You need to beat the enemy to go to next stage"
+      }
     }
-    respond = {
-      "type": "text",
-      "text": dungeonMsg.msg
+    else{
+      let dungeonMsg = dungeon.foward();
+      if(dungeonMsg.type == "enemy"){
+        dungeon.fighting = 1;
+      }
+      respond = {
+        "type": "text",
+        "text": dungeonMsg.msg
+      }
     }
+    
   }
   else if(action == "heal"){
     respond = {
@@ -135,10 +144,19 @@ function gameEventHandler(action, input)
     }
   }
   else if(action == "attack"){
-    respond = {
-      "type": "text",
-      "text": "attack!"
+    if(dungeon.fighting == 1){
+      respond = {
+        "type": "text",
+        "text": "attack!"
+      }
     }
+    else{
+      respond = {
+        "type": "text",
+        "text": "No target!"
+      }
+    }
+      
   }
   else if(action == "goto" && input == "home"){
     current = machine.transition(current, input);

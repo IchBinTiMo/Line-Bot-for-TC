@@ -280,6 +280,41 @@ function game()
               "contents": [
                 {
                   "type": "span",
+                  "text": "#attack",
+                  "weight": "bold"
+                },
+                {
+                  "type": "span",
+                  "text": " to attack your enemy"
+                }
+              ]
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "Attack",
+                "text": "#attack"
+              },
+              "style": "primary",
+              "color": "#8a4500",
+              "height": "sm"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "hello, world",
+              "color": "#FFFFFF",
+              "position": "relative",
+              "align": "center",
+              "contents": [
+                {
+                  "type": "span",
                   "text": "#heal",
                   "weight": "bold"
                 },

@@ -51,6 +51,7 @@ function eventHandler(event)
     }
     else if(action == "goto"){
       if(machine.transition(current, input) != null){
+        console.log(machine[input].entry);
         current = machine.transition(current, input);
         respond = {
           "type": "text",

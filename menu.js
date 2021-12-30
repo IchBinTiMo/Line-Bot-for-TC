@@ -1,3 +1,5 @@
+const machine = require('./machine').machine;
+
 function help()
 {
   return {
@@ -228,7 +230,7 @@ function status()
             },
             {
               "type": "text",
-              "text": "100/100",
+              "text": machine.currentHp + " / " + machine.maxHp,
               "position": "relative",
               "color": "#FFFFFF",
               "offsetBottom": "20px",
@@ -246,7 +248,7 @@ function status()
               "contents": [
                 {
                   "type": "span",
-                  "text": "ATK: ",
+                  "text": "ATK: " + machine.atk,
                   "weight": "bold",
                   "size": "20px"
                 }
@@ -265,7 +267,7 @@ function status()
                 {
                   "type": "span",
                   "color": "#FFFFFF",
-                  "text": "DEF: ",
+                  "text": "DEF: " + machine.def,
                   "size": "20px",
                   "weight": "bold"
                 }

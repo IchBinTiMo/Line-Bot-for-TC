@@ -1,10 +1,15 @@
 const machine = {
     initial: "home",
     current: "home",
+    maxHp: 100,
+    currentHp: 100,
+    atk: 10,
+    def: 10,
     states:
     {
       home:
       {
+        entry: () => {return machine.actions.entryHome()},
         exit: () => {console.log("exit home")},
         on:
         {
@@ -17,7 +22,7 @@ const machine = {
         }
       },
       shop:
-      {
+      {entry: () => {return machine.actions.entryShop()},
         on:
         {
           HOME: "home"
@@ -38,6 +43,14 @@ const machine = {
     {
       entryDungeon: () => {
         msg = "Welcome to Dungeon!";
+        return msg;
+      },
+      entryShop: () => {
+        msg = "Welcome to Shop!";
+        return msg;
+      },
+      entryHome: () => {
+        msg = "Home Sweet Home";
         return msg;
       }
     },

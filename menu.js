@@ -207,7 +207,7 @@ function game()
               "contents": [
                 {
                   "type": "span",
-                  "text": "#gameAction",
+                  "text": "#help",
                   "weight": "bold"
                 }
               ],
@@ -223,8 +223,8 @@ function game()
               "type": "button",
               "action": {
                 "type": "message",
-                "label": "Action",
-                "text": "#gameAction"
+                "label": "Help",
+                "text": "#help"
               },
               "height": "sm",
               "color": "#8a4500",

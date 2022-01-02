@@ -28,7 +28,7 @@ class enemySpawner
     this.pool.fill(0);
     this.interval = 0.15;
 
-    this.pool = this.pool.map((x, i) => (i < 60) ? 1 : ( i < 95 ) ? 2 : 3);
+    this.pool = this.pool.map((x, i) => (i < 75) ? 1 : ( i < 95 ) ? 2 : 3);
   }
   spawn(level){
     let i = Math.floor(Math.random() * 100);

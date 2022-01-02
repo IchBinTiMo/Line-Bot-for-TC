@@ -3,7 +3,6 @@ const Player = require("./player");
 const enemySpawner = require("./enemy");
 const menu = (require("./menu"));
 const potions = require("./potion");
-// const menu = require("./menu");
 
 let dungeon = new Dungeon();
 let player = new Player();
@@ -98,7 +97,7 @@ const machine = {
           {
             target: "healPotionS",
             actions: (input) => {
-              buying = 0;
+              machine.buying = 0;
               return [{
                 type: "flex",
                 altText: "Buy Heal Potion",
@@ -109,45 +108,45 @@ const machine = {
           ONE:
           {
             target: "one",
-            action: (input) => {
+            actions: (input) => {
               if(machine.buying != undefined){
-                if(machine.player.coin >= potions[machine.buying].price){
+                if(machine.player.coin >= potions()[machine.buying].price){
                   machine.player.item.filter((el) => el.id == potions[machine.buying].id).length > 0 ? 
                     machine.player.item.filter((el) => el.id == potions[machine.buying].id).forEach(el => el.num + 1) : 
                     arr.push({id: potions[machine.buying].id, num: 1});
-                    return `You've paid ${1 * potions[machine.buying].price} dollars and got 1 ${potions[machine.buying].name}`;
+                    return [`You've paid ${1 * potions()[machine.buying].price} dollars and got 1 ${potions[machine.buying].name}`];
                 }
-                return "You don't have enough mony!!!";
+                return ["You don't have enough money!!!"];
               }
             }
           },
           TEN:
           {
             target: "ten",
-            action: (input) => {
+            actions: (input) => {
               if(machine.buying != undefined){
-                if(machine.player.coin >= potions[machine.buying].price){
+                if(machine.player.coin >= potions()[machine.buying].price){
                   machine.player.item.filter((el) => el.id == potions[machine.buying].id).length > 0 ? 
                     machine.player.item.filter((el) => el.id == potions[machine.buying].id).forEach(el => el.num + 10) : 
                     arr.push({id: potions[machine.buying].id, num: 10});
-                    return `You've paid ${10 * potions[machine.buying].price} dollars and got 10 ${potions[machine.buying].name}`;
+                    return [`You've paid ${10 * potions()[machine.buying].price} dollars and got 10 ${potions[machine.buying].name}`];
                 }
-                return "You don't have enough mony!!!";
+                return ["You don't have enough money!!!"];
               }
             }
           },
           HUNDRED:
           {
             target: "hundred",
-            action: (input) => {
+            actions: (input) => {
               if(machine.buying != undefined){
-                if(machine.player.coin >= potions[machine.buying].price){
+                if(machine.player.coin >= potions()[machine.buying].price){
                   machine.player.item.filter((el) => el.id == potions[machine.buying].id).length > 0 ? 
                     machine.player.item.filter((el) => el.id == potions[machine.buying].id).forEach(el => el.num + 100) : 
                     arr.push({id: potions[machine.buying].id, num: 100});
-                    return `You've paid ${100 * potions[machine.buying].price} dollars and got 100 ${potions[machine.buying].name}`;
+                    return [`You've paid ${100 * potions()[machine.buying].price} dollars and got 100 ${potions[machine.buying].name}`];
                 }
-                return "You don't have enough mony!!!";
+                return ["You don't have enough money!!!"];
               }
             }
           }

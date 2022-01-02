@@ -724,7 +724,7 @@ function healPotionS()
               "action": {
                 "type": "message",
                 "label": "1x",
-                "text": "#heal1x"
+                "text": "#one"
               },
               "style": "secondary",
               "height": "sm"
@@ -734,7 +734,7 @@ function healPotionS()
               "action": {
                 "type": "message",
                 "label": "10x",
-                "text": "heal10x"
+                "text": "ten"
               },
               "style": "secondary",
               "height": "sm",
@@ -745,7 +745,7 @@ function healPotionS()
               "action": {
                 "type": "message",
                 "label": "100x",
-                "text": "heal100x"
+                "text": "hundred"
               },
               "height": "sm",
               "offsetTop": "10px",

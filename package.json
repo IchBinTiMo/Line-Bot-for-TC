@@ -36,6 +36,7 @@
     "linebot": "^1.6.1",
     "ngrok": "^4.2.2",
     "node-youtube-music": "^0.7.0",
+    "nodemon": "^2.0.15",
     "xstate": "^4.26.1",
     "yt-search": "^2.10.2"
   }

@@ -268,9 +268,9 @@ function handler(event)
       
     // }
     if(Object.keys(machine.states[current]["on"]).includes(action.toUpperCase())){
+      console.log(current, action);
       msg = machine.states[current]["on"][action.toUpperCase()].actions(action);
       current = machine.current;
-      // console.log(current);
     }
     else{
       msg = ["Invalid command"];

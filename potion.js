@@ -2,7 +2,7 @@ const potions = () => {
   return [
     {
       id: 0,
-      name: "heal potion s",
+      name: "heal potion(S)",
       effect: "heal",
       price: 10,
       number: "10",

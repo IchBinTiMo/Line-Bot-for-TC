@@ -199,7 +199,7 @@ function eventHandler(event)
 
       respond.forEach((el, idx) => {
         promise = promise.then(() => {
-          client.pushMessage(event.source.userId, el);
+          client.pushMessage(event.source.userId, el).catch(err => console.error(err));
           return new Promise((resolve) => {
             setTimeout(resolve, 1000);
           });

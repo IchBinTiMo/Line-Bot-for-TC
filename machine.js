@@ -111,10 +111,10 @@ const machine = {
             actions: (input) => {
               if(machine.buying != undefined){
                 if(machine.player.coin >= potions()[machine.buying].price){
-                  machine.player.item.filter((el) => el.id == potions[machine.buying].id).length > 0 ? 
-                    machine.player.item.filter((el) => el.id == potions[machine.buying].id).forEach(el => el.num + 1) : 
-                    arr.push({id: potions[machine.buying].id, num: 1});
-                    return [`You've paid ${1 * potions()[machine.buying].price} dollars and got 1 ${potions[machine.buying].name}`];
+                  machine.player.item.filter((el) => el.id == potions()[machine.buying].id).length > 0 ? 
+                    machine.player.item.filter((el) => el.id == potions()[machine.buying].id).forEach(el => el.num + 1) : 
+                    machine.player.item.push({id: potions()[machine.buying].id, num: 1});
+                    return [`You've paid ${1 * potions()[machine.buying].price} coins and got 1 ${potions()[machine.buying].name}`];
                 }
                 return ["You don't have enough money!!!"];
               }
@@ -126,10 +126,10 @@ const machine = {
             actions: (input) => {
               if(machine.buying != undefined){
                 if(machine.player.coin >= potions()[machine.buying].price){
-                  machine.player.item.filter((el) => el.id == potions[machine.buying].id).length > 0 ? 
-                    machine.player.item.filter((el) => el.id == potions[machine.buying].id).forEach(el => el.num + 10) : 
-                    arr.push({id: potions[machine.buying].id, num: 10});
-                    return [`You've paid ${10 * potions()[machine.buying].price} dollars and got 10 ${potions[machine.buying].name}`];
+                  machine.player.item.filter((el) => el.id == potions()[machine.buying].id).length > 0 ? 
+                    machine.player.item.filter((el) => el.id == potions()[machine.buying].id).forEach(el => el.num + 10) : 
+                    machine.player.item.push({id: potions()[machine.buying].id, num: 10});
+                    return [`You've paid ${10 * potions()[machine.buying].price} coins and got 10 ${potions()[machine.buying].name}`];
                 }
                 return ["You don't have enough money!!!"];
               }
@@ -141,10 +141,10 @@ const machine = {
             actions: (input) => {
               if(machine.buying != undefined){
                 if(machine.player.coin >= potions()[machine.buying].price){
-                  machine.player.item.filter((el) => el.id == potions[machine.buying].id).length > 0 ? 
-                    machine.player.item.filter((el) => el.id == potions[machine.buying].id).forEach(el => el.num + 100) : 
-                    arr.push({id: potions[machine.buying].id, num: 100});
-                    return [`You've paid ${100 * potions()[machine.buying].price} dollars and got 100 ${potions[machine.buying].name}`];
+                  machine.player.item.filter((el) => el.id == potions()[machine.buying].id).length > 0 ? 
+                    machine.player.item.filter((el) => el.id == potions()[machine.buying].id).forEach(el => el.num + 100) : 
+                    machine.player.item.push({id: potions()[machine.buying].id, num: 100});
+                    return [`You've paid ${100 * potions()[machine.buying].price} coins and got 100 ${potions()[machine.buying].name}`];
                 }
                 return ["You don't have enough money!!!"];
               }

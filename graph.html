@@ -8,11 +8,22 @@
   </script>
 
   <div class="mermaid">
-    graph LR 
-    A[user] -->|STATE1| B[state 1]
-    A[user] -->|STATE2| C[state 2]
-    B[state 1] -->|USER| A[user]
-    C[state 2] -->|USER| A[user]
+    classDiagram 
+    home --> dungeon: entryDungeon
+    home --> shop: entryShop
+    dungeon --> home: entryHome
+    shop --> home: entryHome
+    dungeon --> forward : entryForward 
+    forward --> nothing: entryNothing
+    forward --> treasure: entryTreasure
+    forward --> enemy: entryEnemy
+    nothing --> dungeon
+    treasure --> dungeon
+    enemy --> home: attackEnemy
+    enemy --> enemy: attackEnemy
+    enemy --> dungeon: attackEnemy
+    shop --> SHOP : healPotionS 
+    SHOP: buying healPotionS
   </div>
 </body>
 

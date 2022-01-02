@@ -1,5 +1,3 @@
-const machine = (require('./machine').machine);
-
 function help()
 {
   return {
@@ -37,7 +35,7 @@ function help()
                 "text": "#help"
               },
               "height": "sm",
-              "color": "#8a4500",
+              "color": "#62a586",
               "style": "primary"
             }
           ]
@@ -55,7 +53,7 @@ function help()
               "contents": [
                 {
                   "type": "span",
-                  "text": "#goto dungeon",
+                  "text": "#dungeon",
                   "weight": "bold"
                 },
                 {
@@ -69,10 +67,10 @@ function help()
               "action": {
                 "type": "message",
                 "label": "Dungeon",
-                "text": "#goto dungeon"
+                "text": "#dungeon"
               },
               "style": "primary",
-              "color": "#8a4500",
+              "color": "#62a586",
               "height": "sm"
             }
           ]
@@ -90,7 +88,7 @@ function help()
               "contents": [
                 {
                   "type": "span",
-                  "text": "#goto shop",
+                  "text": "#shop",
                   "weight": "bold"
                 },
                 {
@@ -104,10 +102,10 @@ function help()
               "action": {
                 "type": "message",
                 "label": "Shop",
-                "text": "#goto shop"
+                "text": "#shop"
               },
               "style": "primary",
-              "color": "#8a4500",
+              "color": "#62a586",
               "height": "sm"
             }
           ]
@@ -142,7 +140,7 @@ function help()
                 "text": "#status"
               },
               "style": "primary",
-              "color": "#8a4500",
+              "color": "#62a586",
               "height": "sm"
             }
           ]
@@ -177,13 +175,13 @@ function help()
                 "text": "#location"
               },
               "style": "primary",
-              "color": "#8a4500",
+              "color": "#62a586",
               "height": "sm"
             }
           ]
         }
       ],
-      "backgroundColor": "#331A00"
+      "backgroundColor": "#326448"
     }
   }
 }
@@ -227,7 +225,7 @@ function game()
                 "text": "#help"
               },
               "height": "sm",
-              "color": "#8a4500",
+              "color": "#62a586",
               "style": "primary"
             }
           ]
@@ -262,7 +260,7 @@ function game()
                 "text": "#forward"
               },
               "style": "primary",
-              "color": "#8a4500",
+              "color": "#62a586",
               "height": "sm"
             }
           ]
@@ -297,7 +295,7 @@ function game()
                 "text": "#attack"
               },
               "style": "primary",
-              "color": "#8a4500",
+              "color": "#62a586",
               "height": "sm"
             }
           ]
@@ -332,7 +330,7 @@ function game()
                 "text": "#heal"
               },
               "style": "primary",
-              "color": "#8a4500",
+              "color": "#62a586",
               "height": "sm"
             }
           ]
@@ -350,12 +348,12 @@ function game()
               "contents": [
                 {
                   "type": "span",
-                  "text": "#goto home",
+                  "text": "#home",
                   "weight": "bold"
                 },
                 {
                   "type": "span",
-                  "text": " to go to shop"
+                  "text": " to go home"
                 }
               ]
             },
@@ -364,10 +362,10 @@ function game()
               "action": {
                 "type": "message",
                 "label": "Home",
-                "text": "#goto home"
+                "text": "#home"
               },
               "style": "primary",
-              "color": "#8a4500",
+              "color": "#62a586",
               "height": "sm"
             }
           ]
@@ -402,7 +400,7 @@ function game()
                 "text": "#status"
               },
               "style": "primary",
-              "color": "#8a4500",
+              "color": "#62a586",
               "height": "sm"
             }
           ]
@@ -437,18 +435,18 @@ function game()
                 "text": "#location"
               },
               "style": "primary",
-              "color": "#8a4500",
+              "color": "#62a586",
               "height": "sm"
             }
           ]
         }
       ],
-      "backgroundColor": "#331A00"
+      "backgroundColor": "#326448"
     }
   }
 }
 
-function status()
+function status(player)
 {
   return {
     "type": "bubble",
@@ -456,6 +454,18 @@ function status()
       "type": "box",
       "layout": "vertical",
       "contents": [
+        {
+          "type": "text",
+          "color": "#FFFFFF",
+          "contents": [
+            {
+              "type": "span",
+              "text": player.name + ": ",
+              "size": "30px",
+              "weight": "bold"
+            }
+          ]
+        },
         {
           "type": "box",
           "layout": "vertical",
@@ -477,13 +487,23 @@ function status()
               "type": "box",
               "layout": "vertical",
               "contents": [],
+              "backgroundColor": "#FF0000",
+              "position": "absolute",
+              "width": "260px",
+              "height": "20px",
+              "offsetTop": "28px"
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [],
               "backgroundColor": "#00BC00",
-              "width": 260 * machine.currentHp / machine.maxHp + "px",
+              "width": 260 * player.currentHp / player.maxHp + "px",
               "height": "20px"
             },
             {
               "type": "text",
-              "text": machine.currentHp + " / " + machine.maxHp,
+              "text": player.currentHp + " / " + player.maxHp,
               "position": "relative",
               "color": "#FFFFFF",
               "offsetBottom": "20px",
@@ -502,7 +522,26 @@ function status()
               "contents": [
                 {
                   "type": "span",
-                  "text": "ATK: " + machine.atk,
+                  "text": "ATK: " + player.atk,
+                  "weight": "bold",
+                  "size": "20px"
+                }
+              ],
+              "color": "#FFFFFF"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "align": "start",
+              "contents": [
+                {
+                  "type": "span",
+                  "text": "DEF: " + player.def,
                   "weight": "bold",
                   "size": "20px"
                 }
@@ -521,7 +560,7 @@ function status()
                 {
                   "type": "span",
                   "color": "#FFFFFF",
-                  "text": "DEF: " + machine.def,
+                  "text": "Coin: " + player.coin,
                   "size": "20px",
                   "weight": "bold"
                 }
@@ -530,9 +569,195 @@ function status()
           ]
         }
       ],
-      "backgroundColor": "#331A00"
+      "backgroundColor": "#326448"
     }
   }
 }
 
-module.exports = {help, game, status};
+function enemy(enemy)
+{
+  return {
+    "type": "bubble",
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "text",
+          "color": "#FFFFFF",
+          "contents": [
+            {
+              "type": "span",
+              "text": "Enemy:",
+              "size": "30px",
+              "weight": "bold"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "align": "start",
+              "contents": [
+                {
+                  "type": "span",
+                  "text": "HP: ",
+                  "weight": "bold",
+                  "size": "20px"
+                }
+              ],
+              "color": "#FFFFFF"
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [],
+              "backgroundColor": "#FF0000",
+              "position": "absolute",
+              "width": "260px",
+              "height": "20px",
+              "offsetTop": "28px"
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [],
+              "backgroundColor": "#00BC00",
+              "width": 260 * enemy.currentHp / enemy.maxHp + "px",
+              "height": "20px"
+            },
+            {
+              "type": "text",
+              "text": enemy.currentHp + " / " + enemy.maxHp,
+              "position": "relative",
+              "color": "#FFFFFF",
+              "offsetBottom": "20px",
+              "align": "center"
+            }
+          ], 
+          "height": "50px"
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "align": "start",
+              "contents": [
+                {
+                  "type": "span",
+                  "text": "ATK: " + enemy.atk,
+                  "weight": "bold",
+                  "size": "20px"
+                }
+              ],
+              "color": "#FFFFFF"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "contents": [
+                {
+                  "type": "span",
+                  "color": "#FFFFFF",
+                  "text": "DEF: " + enemy.def,
+                  "size": "20px",
+                  "weight": "bold"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "backgroundColor": "#326448"
+    }
+  }
+}
+
+function healPotionS() 
+{
+  return {
+    "type": "bubble",
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "hello, world",
+              "contents": [
+                {
+                  "type": "span",
+                  "text": "Heal Potion",
+                  "size": "30px",
+                  "weight": "bold"
+                }
+              ],
+              "color": "#FFFFFF"
+            },
+            {
+              "type": "text",
+              "text": "Heal 10% of max HP",
+              "color": "#FFFFFF"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "1x",
+                "text": "#heal1x"
+              },
+              "style": "secondary",
+              "height": "sm"
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "10x",
+                "text": "heal10x"
+              },
+              "style": "secondary",
+              "height": "sm",
+              "offsetTop": "5px"
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "100x",
+                "text": "heal100x"
+              },
+              "height": "sm",
+              "offsetTop": "10px",
+              "style": "secondary"
+            }
+          ],
+          "height": "135px"
+        }
+      ],
+      "backgroundColor": "#326448"
+    }
+  }
+}
+
+module.exports = {help, game, status, enemy, healPotionS};

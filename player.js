@@ -3,8 +3,8 @@ class player
   constructor(maxHp, currentHp, atk, def, coin){
     this.maxHp = 100;
     this.currentHp = 100;
-    this.atk = 15;
-    this.def = 15;
+    this.atk = 20;
+    this.def = 20;
     this.coin = 0;
     this.name = "";
     this.item = [];

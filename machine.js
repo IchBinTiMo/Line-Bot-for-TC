@@ -201,6 +201,30 @@ const machine = {
                 text: machine.current
               }];
             }
+          },
+          HEAL:
+          {
+            target: "heal",
+            actions: (input) => {
+              let arr = machine.player.item.filter((el) => el.id == 0 && el.num > 0);
+              if(arr.length > 0){
+                if(machine.player.currentHp < machine.player.maxHp){
+                  machine.player.currentHp = machine.player.currentHp + Math.floor(0.1 * machine.player.maxHp);
+                  machine.player.item.filter((el) => el.id == 0).forEach((el) => el.num = el.num - 1);
+                  if(machine.player.currentHp > machine.player.maxHp){
+                    machine.player.currentHp = machine.player.maxHp;
+                  }
+                  console.log(machine.player.item);
+                  return ["Heal up !", "You feel better now!"];
+                }
+                else{
+                  return ["You are full health now.", "Don't waste your potion please.", "OK?"];
+                }
+              }
+              else{
+                return ["I'm so sorry but you don't have this potion", "Maybe you can try another one"];
+              }
+            }
           }
 
         }
@@ -280,6 +304,30 @@ const machine = {
               return {
                 type: "text",
                 text: machine.current
+              }
+            }
+          },
+          HEAL:
+          {
+            target: "heal",
+            actions: (input) => {
+              let arr = machine.player.item.filter((el) => el.id == 0 && el.num > 0);
+              if(arr.length > 0){
+                if(machine.player.currentHp < machine.player.maxHp){
+                  machine.player.currentHp = machine.player.currentHp + Math.floor(0.1 * machine.player.maxHp);
+                  machine.player.item.filter((el) => el.id == 0).forEach((el) => el.num = el.num - 1);
+                  if(machine.player.currentHp > machine.player.maxHp){
+                    machine.player.currentHp = machine.player.maxHp;
+                  }
+                  console.log(machine.player.item);
+                  return ["Heal up !", "You feel better now!"];
+                }
+                else{
+                  return ["You are full health now.", "Don't waste your potion please.", "OK?"];
+                }
+              }
+              else{
+                return ["I'm so sorry but you don't have this potion", "Maybe you can try another one"];
               }
             }
           }
